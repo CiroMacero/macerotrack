@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macerotrack - Estudantes</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar-toggl">
+        <div class="nav-container">
+            <div class="logo">macero<span>track</span></div>
+            
+            <nav class="nav-menu" aria-label="Navegação Principal">
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="index.html#modulos">Módulos</a>
+                <a href="index.html#cronograma">Cronograma</a>
+                <a href="estudantes.html" style="color: var(--accent-pink); opacity: 1;">Estudantes</a>
+                <a href="index.html#equipa">Equipa</a>
+            </nav>
+            
+            <div class="nav-right">
+                <a href="index.html#modulos" class="btn-toggl-rosa">Explorar Módulos</a>
+                <button class="menu-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="estudantes-main">
+        <div class="estudantes-container">
+            
+            <div class="estudantes-header">
+                <div>
+                    <h2 class="titulo-seccao">Menu Estudante</h2>
+                    <p class="subtitulo">Gestão e monitorização da turma</p>
+                </div>
+                <div class="filtro-provincia">
+                    <label for="filtro">Filtrar por Província:</label>
+                    <select id="filtro" class="select-dark">
+                        <option value="todas">Todas as Províncias</option>
+                        <option value="luanda">Luanda</option>
+                        <option value="benguela">Benguela</option>
+                        <option value="huambo">Huambo</option>
+                        <option value="huila">Huíla</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tabela-wrapper">
+                <table class="tabela-estudantes">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Nome do Estudante</th>
+                            <th>Província</th>
+                            <th>Idade</th>
+                            <th>Módulo Atual</th> </tr>
+                    </thead>
+                    <tbody id="tabela-body">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tabela-footer">
+                <span id="info-paginacao">A mostrar 1 a 15 de 30 estudantes</span>
+                <div class="paginacao-controles">
+                    <button id="btn-anterior" class="btn-pag">Anterior</button>
+                    <button id="btn-proximo" class="btn-pag">Próximo</button>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!-- Indica ao navegador que este é um documento HTML5 moderno -->
+<!DOCTYPE html>
+<!-- Define o idioma da página como Português de Portugal -->
+<html lang="pt-PT">
+<head>
+    <!-- Define a codificação de caracteres para suportar acentos e símbolos corretamente -->
+    <meta charset="UTF-8">
+    <!-- Torna o site responsivo (ajusta o tamanho em ecrãs de telemóveis e PCs) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O título que aparece na aba do teu navegador -->
+    <title>Macerotrack - Monitorização Académica</title>
+    
+    <!-- Importa a fonte 'Inter' diretamente do repositório do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Importa a biblioteca Font Awesome para poderes usar os ícones de programação/redes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Conecta este ficheiro HTML ao teu ficheiro de estilos CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         CABEÇALHO / BARRA DE NAVEGAÇÃO (NAVBAR)
+         ========================================== -->
+    <header class="navbar-toggl">
+        <div class="nav-container">
+            <!-- Logótipo principal; a tag span serve para pintar o "track" com cor diferente no CSS -->
+            <div class="logo">macero<span>track</span></div>
+            
+            <!-- Menu de navegação. As IDs com '#' apontam para as secções mais abaixo na página -->
+            <nav class="nav-menu" aria-label="Navegação Principal">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#cronograma">Cronograma</a>
+                <a href="estudantes.html">Estudantes</a> <!-- O novo link aqui! -->
+                <a href="#equipa">Equipa</a>
+            </nav>
+            
+            <!-- Botões do lado direito da Navbar -->
+            <div class="nav-right">
+                <a href="#modulos" class="btn-toggl-rosa">Explorar Módulos</a>
+                <!-- Botão de três linhas para telemóvel (Menu Hambúrguer); será ativado via JavaScript -->
+                <button class="menu-mobile-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         CONTEÚDO PRINCIPAL DO SITE
+         ========================================== -->
+    <main>
+        
+        <!-- SECÇÃO 1: HERO / DASHBOARD VISUAL -->
+        <section id="dashboard" class="hero-section">
+            
+            <!-- Bloco de texto de apresentação (lado esquerdo/superior) -->
+            <div class="hero-text-container">
+                <h1 class="hero-title">Onde a <span>lógica</span> de programação e o <span>sucesso</span> escolar se cruzam.</h1>
+                
+                <div class="hero-about-box">
+                    <p class="hero-subtitle">
+                        O <strong>Macerotrack</strong> é uma plataforma de monitorização académica desenvolvida para centralizar, analisar e otimizar o rendimento dos estudantes nas disciplinas técnicas do Curso de Informática.
+                    </p>
+                    <p class="hero-description">
+                        Através de uma interface analítica inspirada em ferramentas profissionais de gestão de tempo, o nosso ecossistema mapeia a distribuição de carga horária, os sprints de desenvolvimento da equipa e a evolução prática dos módulos de programação.
+                    </p>
+                </div>
+
+                <div class="hero-buttons-row">
+                    <a href="#dashboard-rendimento" class="btn-primary">Fazer Login</a>
+                    <a href="#modulos" class="btn-secondary">Módulos Técnicos</a>
+                </div>
+            </div>
+
+            <!-- Contentor que imita o Dashboard da Toggl (interface profissional) -->
+            <div class="toggl-layout-wrapper">
+                
+                <!-- Coluna Esquerda do Dashboard: Órbita com as linguagens -->
+                <aside class="toggl-side-left">
+                    <div class="integrations-dashed-box">
+                        <!-- Ícones flutuantes; o atributo 'title' mostra o nome ao passar o rato -->
+                        <div class="icon-orbit io-1" title="JavaScript"><i class="fab fa-js"></i></div>
+                        <div class="icon-orbit io-2" title="GitHub"><i class="fab fa-github"></i></div>
+                        <div class="icon-orbit io-3" title="HTML5"><i class="fab fa-html5"></i></div>
+                        <div class="icon-orbit io-4" title="Python"><i class="fab fa-python"></i></div>
+                        <div class="icon-orbit io-5" title="Code"><i class="fas fa-code"></i></div>
+                        <div class="icon-orbit io-6" title="CSS3"><i class="fab fa-css3-alt"></i></div>
+                        
+                        <!-- Botão central decorativo estilo "Power" -->
+                        <div class="power-button-circle">
+                            <div class="power-icon" aria-hidden="true">⏻</div>
+                        </div>
+                    </div>
+                    <div class="integrations-text">
+                        <h3>100+</h3>
+                        <p>INTEGRAÇÕES</p>
+                    </div>
+                </aside>
+
+                <!-- Área Central do Dashboard: Gráficos e Tabelas -->
+                <div class="toggl-center-cards">
+                    
+                    <!-- CARTÃO 1: Gráfico de Barras de Carga Horária -->
+                    <div class="toggl-white-card">
+                        <div class="card-inner-padding">
+                            <h4 class="toggl-card-title">Carga Horária Semanal por Disciplina</h4>
+                            
+                            <div class="toggl-bars-container">
+                                <!-- O style inline '--bar-h' passa a altura para o CSS controlar o tamanho da barra -->
+                                <div class="toggl-bar-column" style="--bar-h: 92%;" data-hours="12h">
+                                    <div class="bar-fill bg-tlp"></div>
+                                    <span class="bar-name">TLP</span>
+                                </div>
+                                <div class="toggl-bar-column" style="--bar-h: 68%;" data-hours="8h">
+                                    <div class="bar-fill bg-tic"></div>
+                                    <span class="bar-name">TIC</span>
+                                </div>
+                                <div class="toggl-bar-column" style="--bar-h: 82%;" data-hours="10h">
+                                    <div class="bar-fill bg-mat"></div>
+                                    <span class="bar-name">Mat.</span>
+                                </div>
+                                <div class="toggl-bar-column" style="--bar-h: 54%;" data-hours="6h">
+                                    <div class="bar-fill bg-port"></div>
+                                    <span class="bar-name">Port.</span>
+                                </div>
+                            </div>
+
+                            <div class="toggl-card-footer-row">
+                                <span class="footer-dot-pink"></span>
+                                <span class="footer-project-txt">Carga Horária Total</span>
+                                <span class="footer-timer-txt">23:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARTÃO 2: Tabela de Atividade Recente da Equipa -->
+                    <div class="toggl-white-card">
+                        <div class="card-inner-padding">
+                            <h4 class="toggl-card-title">Atividade da Equipa</h4>
+                            
+                            <!-- Destaque rápido dos utilizadores mais ativos -->
+                            <div class="toggl-active-top-bar">
+                                <span class="top-bar-label">MAIS ATIVOS NOS ÚLTIMOS 7 DIAS</span>
+                                <div class="top-users-flex">
+                                    <div class="user-pill"><span class="pill-av bg-pink">C</span> Cícero <span class="pill-time">12h</span></div>
+                                    <div class="user-pill"><span class="pill-av bg-purple">M</span> Moisés A. <span class="pill-time">10h</span></div>
+                                    <div class="user-pill"><span class="pill-av bg-amber">S</span> Sadrack <span class="pill-time">8h</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Estrutura da tabela simulada usando Grid/Flexbox no CSS -->
+                            <div class="toggl-grid-table">
+                                <div class="table-grid-header">
+                                    <div>MEMBRO</div>
+                                    <div>DESCRIÇÃO</div>
+                                    <div style="text-align: right;">DURAÇÃO</div>
+                                </div>
+
+                                <div class="table-grid-body">
+                                    <!-- Primeira linha: Usuário ativo no momento (Contém a classe 'row-active-now') -->
+                                    <div class="table-grid-row row-active-now">
+                                        <div class="cell-member">
+                                            <span class="row-av bg-pink">C</span>
+                                            <span class="name-bold">Cícero</span>
+                                        </div>
+                                        <div class="cell-desc">Polimento do Design do Workspace e Micro-interações CSS</div>
+                                        <!-- A tag 'pulse-green-dot' faz o efeito da bolinha verde a piscar (Online) -->
+                                        <div class="cell-time"><span class="pulse-green-dot"></span>Agora</div>
+                                    </div>
+                                    
+                                    <div class="table-grid-row">
+                                        <div class="cell-member">
+                                            <span class="row-av bg-purple">M</span>
+                                            <span class="name-bold">Moisés A.</span>
+                                        </div>
+                                        <div class="cell-desc">Revisão do código JavaScript e validação de scripts</div>
+                                        <div class="cell-time">2:15:00</div>
+                                    </div>
+                                    
+                                    <div class="table-grid-row">
+                                        <div class="cell-member">
+                                            <span class="row-av bg-amber">S</span>
+                                            <span class="name-bold">Sadrack T.</span>
+                                        </div>
+                                        <div class="cell-desc">Análise de performance, UX e métricas de usabilidade</div>
+                                        <div class="cell-time">4:30:00</div>
+                                    </div>
+                                    
+                                    <div class="table-grid-row">
+                                        <div class="cell-member">
+                                            <span class="row-av bg-green">H</span>
+                                            <span class="name-bold">Helder N.</span>
+                                        </div>
+                                        <div class="cell-desc">Estudo da documentação técnica e arquitetura</div>
+                                        <div class="cell-time">5:25:00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coluna Direita do Dashboard: Ilustração vetorial feita em HTML/CSS -->
+                <div class="toggl-side-right" style="position: relative;">
+                    <div class="texto-plataformas">
+                        <h4>ECOSSISTEMA MULTIPLATAFORMA</h4>
+                        <p>Aceda ao seu espaço de trabalho através do computador ou smartphone.</p>
+                    </div>
+
+                    <div class="vector-illustration-container">
+                        <!-- Simulação visual de um Smartphone -->
+                        <div class="v-phone-wrapper">
+                            <div class="v-phone-screen">
+                                <span class="v-phone-button"></span>
+                            </div>
+                        </div>
+                        <div class="v-connect-line"></div>
+                        <!-- Simulação visual de um Laptop / Portátil com mãos no teclado -->
+                        <div class="v-laptop-wrapper">
+                            <div class="v-laptop-screen">
+                                <span class="v-laptop-logo"></span>
+                            </div>
+                            <div class="v-laptop-base"></div>
+                            <div class="v-hands-typing">
+                                <span class="v-hand-l"></span>
+                                <span class="v-hand-r"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faixa inferior com os logos das Big Techs (Efeito estético) -->
+            <div class="toggl-brands-footer">
+                <div class="brands-inner-flex">
+                    <span class="brand-item-logo" title="Google"><i class="fab fa-google"></i></span>
+                    <span class="brand-item-logo" title="Apple"><i class="fab fa-apple"></i></span>
+                    <span class="brand-item-logo" title="Meta"><i class="fab fa-meta"></i></span>
+                    <span class="brand-item-logo" title="Microsoft"><i class="fab fa-microsoft"></i></span>
+                    <span class="brand-item-logo" title="Nvidia"><i class="fab fa-nvidia"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SECÇÃO: GESTÃO ESCOLAR (ESTUDANTES E PROVÍNCIAS) -->
+<div class="dashboard-grid-2">
+    
+    <!-- MENU ESTUDANTE: LISTA NOMINAL -->
+    <div class="dashboard-card card-estudantes">
+        <div class="card-header">
+            <h3>Menu Estudante</h3>
+            <span class="badge-count">20 Alunos</span>
+        </div>
+        
+        <div class="table-wrapper">
+            <table class="students-table">
+                <thead>
+                    <tr>
+                        <th>Nº</th>
+                        <th>Nome do Estudante</th>
+                        <th>Província</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo de Linhas (Podes repetir até dar 20 alunos) -->
+                    <tr>
+                        <td>01</td>
+                        <td><div class="student-profile"><div class="avatar-mini"></div> Cícero Manuel</div></td>
+                        <td>Luanda</td>
+                        <td><span class="status-dot active"></span> Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td><div class="student-profile"><div class="avatar-mini"></div> Moisés Alberto</div></td>
+                        <td>Benguela</td>
+                        <td><span class="status-dot active"></span> Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td><div class="student-profile"><div class="avatar-mini"></div> Helder Nhimi</div></td>
+                        <td>Huambo</td>
+                        <td><span class="status-dot active"></span> Ativo</td>
+                    </tr>
+                    <tr>
+                        <td>04</td>
+                        <td><div class="student-profile"><div class="avatar-mini"></div> Sadrack Tudilu</div></td>
+                        <td>Luanda</td>
+                        <td><span class="status-dot active"></span> Ativo</td>
+                    </tr>
+                    <!-- Coloca mais nomes fictícios aqui para completar os 20 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- MENU PROVÍNCIA: DISTRIBUIÇÃO ANALÍTICA -->
+    <div class="dashboard-card card-provincias">
+        <div class="card-header">
+            <h3>Menu Província</h3>
+        </div>
+        <p class="card-subtitle">Distribuição demográfica dos estudantes</p>
+        
+        <div class="provincias-list">
+            <!-- Luanda -->
+            <div class="provincia-item">
+                <div class="provincia-info">
+                    <span>Luanda</span>
+                    <span class="provincia-qty">12 alunos</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill fill-luanda" style="width: 60%;"></div>
+                </div>
+            </div>
+            
+            <!-- Benguela -->
+            <div class="provincia-item">
+                <div class="provincia-info">
+                    <span>Benguela</span>
+                    <span class="provincia-qty">5 alunos</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill fill-benguela" style="width: 25%;"></div>
+                </div>
+            </div>
+
+            <!-- Huambo -->
+            <div class="provincia-item">
+                <div class="provincia-info">
+                    <span>Huambo</span>
+                    <span class="provincia-qty">3 alunos</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill fill-huambo" style="width: 15%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        <!-- SECÇÃO 2: MATÉRIAS / MÓDULOS TÉCNICOS -->
+        <section id="modulos" class="modulos-cards-section">
+            <div class="section-header">
+                <h2>Módulos Técnicos Apresentados</h2>
+                <p>O percurso de engenharia, lógica e estruturação desenvolvido ao longo das nossas aulas práticas.</p>
+            </div>
+
+            <!-- Contentor dos três cartões (HTML, C++ e Python) -->
+            <div class="cards-modulos-container">
+                
+                <!-- Cartão HTML -->
+                <div class="card-modulo style-rosa">
+                    <div>
+                        <div class="card-top-num">HTML</div>
+                        <h3 class="card-headline">Estrutura da Página Web</h3>
+                        <div class="card-img-wrapper">
+                            <!-- Imagem do código (Verifica se o ficheiro está mesmo na pasta 'images') -->
+                            <img src="images/print-html.jpeg" alt="Captura de ecrã exibindo código HTML5 estruturado">
+                        </div>
+                        <p class="card-desc-text">
+                            "Responsável pela estrutura e organização dos elementos da página, servindo como base para todo o desenvolvimento do site."
+                        </p>
+                    </div>
+                    <!-- Rodapé do cartão com badge e o logótipo oficial em SVG puxado via CDN externa -->
+                    <div class="card-footer-toggl-style">
+                        <div class="footer-logo-brand">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="Logótipo oficial do HTML5">
+                        </div>
+                        <div class="footer-badge-text">Web Standard <span>▸</span></div>
+                    </div>
+                </div>
+
+                <!-- Cartão C/C++ -->
+                <div class="card-modulo style-amarelo">
+                    <div>
+                        <div class="card-top-num">C/C++</div>
+                        <h3 class="card-headline">Lógica e Programação</h3>
+                        <div class="card-img-wrapper">
+                            <img src="images/print-ccp.jpg" alt="Captura de ecrã mostrando algoritmos em linguagem C++">
+                        </div>
+                        <p class="card-desc-text">
+                            "Utilizado para desenvolver o raciocínio lógico e os conceitos fundamentais de programação aplicados durante o projeto."
+                        </p>
+                    </div>
+                    <div class="card-footer-toggl-style">
+                        <div class="footer-logo-brand">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="Logótipo oficial do C++">
+                        </div>
+                        <div class="footer-badge-text">Linguagem Estruturada <span>▸</span></div>
+                    </div>
+                </div>
+
+                <!-- Cartão Python -->
+                <div class="card-modulo style-lilas">
+                    <div>
+                        <div class="card-top-num">Python</div>
+                        <h3 class="card-headline">Automação e Processamento de Dados</h3>
+                        <div class="card-img-wrapper">
+                            <img src="images/print-python.jpg" alt="Captura de ecrã com scripts de automação em Python">
+                        </div>
+                        <p class="card-desc-text">
+                            "Ferramenta utilizada para automatizar tarefas, processar informações e desenvolver soluções de forma rápida e eficiente."
+                        </p>
+                    </div>
+                    <div class="card-footer-toggl-style">
+                        <div class="footer-logo-brand">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Logótipo oficial do Python">
+                        </div>
+                        <div class="footer-badge-text">Automação & Scripting <span>▸</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECÇÃO 3: CRONOGRAMA / CALENDÁRIO ACADÉMICO -->
+        <section id="cronograma" class="cronograma-section">
+            <div class="section-header">
+                <h2>Visualização do Cronograma</h2>
+                <p>Organização semanal das aulas do curso técnico de informática</p>
+            </div>
+
+            <!-- Contentor global dos dias da semana (Segunda a Sexta) -->
+            <div class="calendar-container">
+                
+                <!-- Segunda-Feira -->
+                <div class="calendar-day">
+                    <div class="day-name">Segunda-Feira</div>
+                    <!-- As classes 'block-tlp', 'block-fai' servem para o CSS aplicar cores diferentes para cada matéria -->
+                     <div class="calendar-event block-free">Estudo Livre</div>
+                    <div class="calendar-event block-tlp">09:10 - Português</div>
+                    <div class="calendar-event block-fai">10:10 - S.E.A.C</div>
+                </div>
+                
+                <!-- Terça-Feira -->
+                <div class="calendar-day">
+                    <div class="day-name">Terça-Feira</div>
+                    <div class="calendar-event block-tic">07:30 - T.I.C</div>
+                    <div class="calendar-event block-portugues">09:10 - Português</div>
+                    <div class="calendar-event block-ingles">11:00 - Ingles</div>
+                </div>
+                
+                <!-- Quarta-Feira -->
+                <div class="calendar-day">
+                    <div class="day-name">Quarta-Feira</div>
+                    <div class="calendar-event block-fisica">07:30 - Fisica</div>
+                    <div class="calendar-event block-electrotecnia">09:10 - Electrotecnia</div>
+                    <div class="calendar-event block-fai">11:00 - F.A.I</div>
+                </div>
+                
+                <!-- Quinta-Feira -->
+                <div class="calendar-day">
+                    <div class="day-name">Quinta-Feira</div>
+                    <div class="calendar-event block-tlp">07:30 - T.L.P.</div>
+                    <div class="calendar-event block-ingles">10:10 - Ingles</div>
+                    <div class="calendar-event block-empreendedorismo">11:00 - Empreendedorismo</div>
+                </div>
+                
+                <!-- Sexta-Feira -->
+                <div class="calendar-day">
+                    <div class="day-name">Sexta-Feira</div>
+                    <div class="calendar-event block-quimica">07:30 - Quimica</div>
+                    <div class="calendar-event block-matematica">09:10 - Matematica</div>
+                    <div class="calendar-event block-free">Estudo Livre</div>
+                </div>
+            </div>
+        </section>
+            
+        <!-- SECÇÃO 4: EQUIPA DE DESENVOLVEDORES -->
+        <section id="equipa" class="equipa-section">
+            <h2 class="section-title-center">Desenvolvedores do Projeto</h2>
+            
+            <div class="cards-equipa-container">
+                
+                <!-- Desenvolvedor 1: Cícero -->
+                <div class="card-membro">
+                    <div class="membro-num">01</div>
+                    <h3>Cícero Manuel</h3>
+                    <p>Lead Developer do projeto, responsável pela arquitetura do sistema e pela lógica visual do dashboard.</p>
+                    <div class="membro-contactos">
+                        <!-- Atributo href com 'mailto:' abre a aplicação de e-mail do sistema -->
+                        <a href="mailto:cicero@gmail.com" title="E-mail de Cícero"><i class="fas fa-envelope"></i> cicero@gmail.com</a>
+                        <!-- Atributo href com 'tel:' permite ligar diretamente se clicado num telemóvel -->
+                        <a href="tel:+244933521607" title="Telefone de Cícero"><i class="fas fa-phone"></i> +244 933 521 607</a>
+                    </div>
+                </div>
+
+                <!-- Desenvolvedor 2: Moisés -->
+                <div class="card-membro">
+                    <div class="membro-num">02</div>
+                    <h3>Moisés Alberto</h3>
+                    <p>Core Developer, focado na estruturação do conteúdo semântico, validação de dados e scripts funcionais.</p>
+                    <div class="membro-contactos">
+                        <a href="mailto:moises@gmail.com" title="E-mail de Moisés"><i class="fas fa-envelope"></i> moises@gmail.com</a>
+                        <a href="tel:+244929997532" title="Telefone de Moisés"><i class="fas fa-phone"></i> +244 929 997 532</a>
+                    </div>
+                </div>
+
+                <!-- Desenvolvedor 3: Helder -->
+                <div class="card-membro">
+                    <div class="membro-num">03</div>
+                    <h3>Helder Nhimi</h3>
+                    <p>Core Developer, responsável pela organização do cronograma técnico, mapeamento de fluxos e documentação.</p>
+                    <div class="membro-contactos">
+                        <a href="mailto:helder@gmail.com" title="E-mail de Helder"><i class="fas fa-envelope"></i> helder@gmail.com</a>
+                        <a href="tel:+244938975832" title="Telefone de Helder"><i class="fas fa-phone"></i> +244 938 975 832</a>
+                    </div>
+                </div>
+
+                <!-- Desenvolvedor 4: Sadrack -->
+                <div class="card-membro">
+                    <div class="membro-num">04</div>
+                    <h3>Sadrack Tudilu</h3>
+                    <p>UI/UX Analyst, encarregue da análise de performance, refinamento de usabilidade e métricas de experiência de utilizador.</p>
+                    <div class="membro-contactos">
+                        <a href="mailto:sadrack@gmail.com" title="E-mail de Sadrack"><i class="fas fa-envelope"></i> sadrack@gmail.com</a>
+                        <a href="tel:+244939183843" title="Telefone de Sadrack"><i class="fas fa-phone"></i> +244 939 183 843</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         RODAPÉ FINAL DA PÁGINA (FOOTER)
+         ========================================== -->
+    <footer class="footer-toggl">
+        <!-- O código '&copy;' faz o símbolo de Copyright (©) aparecer direito na página -->
+        <p>&copy; 2026 Macero Track. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Liga o ficheiro JavaScript externo para dar vida ao menu mobile ou funções interativas -->
+    <script src="script.js"></script>
+</body>
+</html>
