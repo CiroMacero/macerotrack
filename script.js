@@ -1,170 +1,137 @@
 /**
- * SISTEMA AUTOMÁTICO E MODERNO DE ABAS (TABS)
- * Desenvolvido com Event Listeners para garantir escalabilidade e segurança.
+ * SISTEMA AUTOMÁTICO E MODERNO - MÓDULO DE ABAS E PAGINAÇÃO
+ * Código organizado para melhor legibilidade e manutenção.
  */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Captura todos os botões e conteúdos do ecrã
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
+    // Inicializa o sistema de abas
+    initTabs();
+    
+    // Inicializa o sistema de paginação e filtros
+    initPagination();
+});
 
-    // Adiciona o evento de clique a cada um dos botões de forma dinâmica
-    tabButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            
-            // 1. Remove a classe 'active' de todos os botões
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // 2. Remove a classe 'active' de todos os blocos de conteúdo
-            tabContents.forEach(content => content.classList.remove('active'));
+/**
+ * Lógica para o Sistema de Abas
+ */
+function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn'); // Seleciona todos os botões de abas
+    const tabContents = document.querySelectorAll('.tab-content'); // Seleciona todos os blocos de conteúdo
 
-            // 3. Adiciona a classe 'active' apenas ao botão que foi clicado
-            e.currentTarget.classList.add('active');
-
-            // 4. Pega o valor do atributo 'data-tab' do botão clicado
-            const targetId = e.currentTarget.getAttribute('data-tab');
+    tabButtons.forEach(button => { // Itera sobre cada botão para adicionar o evento de clique
+        button.addEventListener('click', (e) => { // Adiciona escuta de clique
+            tabButtons.forEach(btn => btn.classList.remove('active')); // Remove a classe 'active' de todos os botões
+            tabContents.forEach(content => content.classList.remove('active')); // Remove a classe 'active' de todos os conteúdos
             
-            // 5. Procura a div que tem o ID correspondente
-            const targetContent = document.getElementById(targetId);
+            e.currentTarget.classList.add('active'); // Adiciona 'active' apenas ao botão clicado
+            const targetId = e.currentTarget.getAttribute('data-tab'); // Captura o ID do alvo via atributo 'data-tab'
+            const targetContent = document.getElementById(targetId); // Localiza o elemento de conteúdo correspondente
             
-            // 6. Se a div existir, adiciona a classe 'active' para a mostrar no ecrã
-            if (targetContent) {
-                targetContent.classList.add('active');
-            } else {
-                console.warn(`Aviso: Não foi encontrada nenhuma aba com o ID "${targetId}".`);
+            if (targetContent) { // Se o conteúdo existir...
+                targetContent.classList.add('active'); // ...ativa o conteúdo correspondente
             }
         });
     });
-});
-
-// 1. A NOSSA BASE DE DADOS (Array com 30 estudantes)
-// Adicionei os vossos nomes e preenchi o resto com nomes fictícios.
-const estudantes = [
-    { nome: "Cícero Manuel", prov: "Luanda", idade: 16, modulo: "Arquitetura de Sistemas" },
-    { nome: "Moisés Alberto", prov: "Benguela", idade: 16, modulo: "JavaScript" },
-    { nome: "Sadrack Tudilu", prov: "Luanda", idade: 17, modulo: "UI/UX Design" },
-    { nome: "Helder Nhimi", prov: "Huambo", idade: 16, modulo: "Estrutura de Dados" },
-    { nome: "Ana Silva", prov: "Luanda", idade: 15, modulo: "HTML/CSS" },
-    { nome: "Bruno Costa", prov: "Benguela", idade: 18, modulo: "Python" },
-    { nome: "Carlos Sousa", prov: "Huíla", idade: 17, modulo: "C/C++" },
-    { nome: "Daniela Rocha", prov: "Luanda", idade: 16, modulo: "HTML/CSS" },
-    { nome: "Eduardo Lima", prov: "Cabinda", idade: 17, modulo: "Python" },
-    { nome: "Fernanda Gomes", prov: "Luanda", idade: 15, modulo: "Lógica" },
-    { nome: "Gabriel Mendes", prov: "Huambo", idade: 16, modulo: "Redes" },
-    { nome: "Hugo Martins", prov: "Luanda", idade: 18, modulo: "C/C++" },
-    { nome: "Inês Santos", prov: "Benguela", idade: 15, modulo: "HTML/CSS" },
-    { nome: "João Pinto", prov: "Luanda", idade: 17, modulo: "Python" },
-    { nome: "Kátia Almeida", prov: "Huíla", idade: 16, modulo: "Redes" },
-    { nome: "Luís Fernandes", prov: "Luanda", idade: 17, modulo: "JavaScript" },
-    { nome: "Mariana Ribeiro", prov: "Cabinda", idade: 15, modulo: "Lógica" },
-    { nome: "Nuno Carvalho", prov: "Huambo", idade: 18, modulo: "HTML/CSS" },
-    { nome: "Paulo Monteiro", prov: "Luanda", idade: 16, modulo: "C/C++" },
-    { nome: "Raquel Dias", prov: "Benguela", idade: 17, modulo: "UI/UX Design" },
-    { nome: "Sara Marques", prov: "Luanda", idade: 15, modulo: "Python" },
-    { nome: "Tiago Pereira", prov: "Huíla", idade: 16, modulo: "Lógica" },
-    { nome: "Úrsula Neves", prov: "Benguela", idade: 18, modulo: "Redes" },
-    { nome: "Vasco Silva", prov: "Luanda", idade: 17, modulo: "JavaScript" },
-    { nome: "Xavier Lopes", prov: "Huambo", idade: 16, modulo: "C/C++" },
-    { nome: "Yara Cunha", prov: "Luanda", idade: 15, modulo: "HTML/CSS" },
-    { nome: "Zeca Afonso", prov: "Cabinda", idade: 18, modulo: "Python" },
-    { nome: "Beatriz Tavares", prov: "Luanda", idade: 16, modulo: "Lógica" },
-    { nome: "Diogo Faria", prov: "Benguela", idade: 17, modulo: "Redes" },
-    { nome: "Marta Soares", prov: "Luanda", idade: 15, modulo: "JavaScript" }
-];
-
-// 2. ORDENAÇÃO ALFABÉTICA
-// Esta linha organiza automaticamente o array de A a Z
-estudantes.sort((a, b) => a.nome.localeCompare(b.nome));
-
-// 3. VARIÁVEIS DE CONTROLO DA PAGINAÇÃO E FILTRO
-let paginaAtual = 1;
-const limitePorPagina = 15; // Quantos alunos mostrar por página
-let estudantesFiltrados = [...estudantes]; // Array que muda quando usamos o filtro
-
-// 4. FUNÇÃO QUE DESENHA A TABELA
-function renderizarTabela() {
-    const tbody = document.getElementById("tabela-body");
-    tbody.innerHTML = ""; // Limpa a tabela antes de escrever
-
-    // Calcula de onde até onde vamos cortar a lista (Ex: Pag 1 = 0 a 15)
-    const inicio = (paginaAtual - 1) * limitePorPagina;
-    const fim = inicio + limitePorPagina;
-    const alunosDaPagina = estudantesFiltrados.slice(inicio, fim);
-
-    // Escreve as linhas da tabela
-    alunosDaPagina.forEach((aluno, index) => {
-        // A cor do avatar muda com base na primeira letra, só para dar estilo
-        const corAvatar = ["c-bg", "m-bg", "s-bg", "h-bg", "d-bg"][index % 5];
-        const numeroReal = (inicio + index + 1).toString().padStart(2, '0');
-
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${numeroReal}</td>
-            <td>
-                <div class="aluno-info">
-                    <div class="avatar ${corAvatar}">${aluno.nome.charAt(0)}</div>
-                    ${aluno.nome}
-                </div>
-            </td>
-            <td>${aluno.prov}</td>
-            <td>${aluno.idade} anos</td>
-            <td><span class="status-ativo">${aluno.modulo}</span></td>
-        `;
-        tbody.appendChild(tr);
-    });
-
-    atualizarPaginacao();
 }
 
-// 5. FUNÇÃO PARA ATUALIZAR OS BOTÕES E O TEXTO DA PAGINAÇÃO
-function atualizarPaginacao() {
-    const infoPaginacao = document.getElementById("info-paginacao");
-    const btnAnterior = document.getElementById("btn-anterior");
-    const btnProximo = document.getElementById("btn-proximo");
+/**
+ * Lógica para o Sistema de Paginação e Filtro
+ */
+function initPagination() {
+    // --- Seleção de elementos do DOM ---
+    const todasAsLinhas = Array.from(document.querySelectorAll('.tabela-estudantes tbody tr')); // Converte NodeList para Array para usar métodos de array
+    const btnAnterior = document.getElementById('btn-anterior'); // Botão de página anterior
+    const btnProximo = document.getElementById('btn-proximo'); // Botão de próxima página
+    const textoPaginacao = document.getElementById('texto-paginacao'); // Elemento de texto que mostra o status atual
+    const selectFiltro = document.getElementById('filtro'); // Dropdown de filtro por província
 
-    const totalAlunos = estudantesFiltrados.length;
-    const totalPaginas = Math.ceil(totalAlunos / limitePorPagina);
-    
-    // Atualiza o texto (Ex: "A mostrar 1 a 15 de 30 estudantes")
-    const numInicio = totalAlunos === 0 ? 0 : ((paginaAtual - 1) * limitePorPagina) + 1;
-    const numFim = Math.min(paginaAtual * limitePorPagina, totalAlunos);
-    infoPaginacao.innerText = `A mostrar ${numInicio} a ${numFim} de ${totalAlunos} estudantes`;
+    // --- Variáveis de Estado ---
+    let paginaAtual = 1; // Controla a página atual
+    const alunosPorPagina = 15; // Define o limite de linhas por página
+    let linhasFiltradas = [...todasAsLinhas]; // Copia todas as linhas para a variável de controle inicial
 
-    // Desativa botões se estivermos na primeira ou última página
-    btnAnterior.disabled = paginaAtual === 1;
-    btnProximo.disabled = paginaAtual === totalPaginas || totalPaginas === 0;
-}
+    // Função para remover acentos (auxiliar)
+    const normalizarTexto = (texto) => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-// 6. EVENTOS DE CLIQUE PARA PAGINAÇÃO E FILTRO
-// Avançar página
-document.getElementById("btn-proximo").addEventListener("click", () => {
-    paginaAtual++;
-    renderizarTabela();
-});
+    // Função principal de renderização da página
+    function mostrarPagina(pagina) {
+        todasAsLinhas.forEach(linha => linha.style.display = 'none'); // Esconde todas as linhas inicialmente
 
-// Recuar página
-document.getElementById("btn-anterior").addEventListener("click", () => {
-    paginaAtual--;
-    renderizarTabela();
-});
+        const totalFiltrados = linhasFiltradas.length; // Quantidade total de itens após filtro
+        const totalPaginas = Math.ceil(totalFiltrados / alunosPorPagina) || 1; // Calcula total de páginas necessário
 
-// Filtro do "Menu Província"
-// Ouve sempre que mudas o select e filtra os dados
-const selectFiltro = document.getElementById("filtro");
-if(selectFiltro) {
-    selectFiltro.addEventListener("change", (evento) => {
-        const valorEscolhido = evento.target.value.toLowerCase();
-        
-        if (valorEscolhido === "todas") {
-            estudantesFiltrados = [...estudantes];
-        } else {
-            // Filtra o array pela província selecionada
-            estudantesFiltrados = estudantes.filter(aluno => aluno.prov.toLowerCase() === valorEscolhido);
+        const inicio = (pagina - 1) * alunosPorPagina; // Define o índice inicial da fatia
+        const fim = inicio + alunosPorPagina; // Define o índice final da fatia
+
+        // Itera sobre as linhas filtradas e exibe apenas as que pertencem à página atual
+        linhasFiltradas.forEach((linha, index) => {
+            if (index >= inicio && index < fim) {
+                linha.style.display = ''; // Remove o display: none para mostrar a linha
+            }
+        });
+
+        // Atualiza o texto informativo "A mostrar X a Y de Z"
+        if (textoPaginacao) {
+            const numeroFim = Math.min(fim, totalFiltrados); // Garante que o número não exceda o total
+            const numeroInicio = totalFiltrados === 0 ? 0 : inicio + 1; // Define o início da contagem
+            textoPaginacao.innerText = `A mostrar ${numeroInicio} a ${numeroFim} de ${totalFiltrados} estudantes`;
         }
-        
-        paginaAtual = 1; // Volta sempre para a página 1 ao filtrar
-        renderizarTabela();
-    });
-}
 
-// 7. ARRANQUE INICIAL
-renderizarTabela();
+        // --- Lógica de estado dos botões ---
+        if (btnAnterior) { // Desabilita o botão anterior se for a primeira página
+            btnAnterior.disabled = pagina === 1;
+            btnAnterior.style.opacity = pagina === 1 ? '0.5' : '1';
+            btnAnterior.style.cursor = pagina === 1 ? 'not-allowed' : 'pointer';
+        }
+
+        if (btnProximo) { // Desabilita o botão próximo se for a última página
+            btnProximo.disabled = pagina >= totalPaginas;
+            btnProximo.style.opacity = pagina >= totalPaginas ? '0.5' : '1';
+            btnProximo.style.cursor = pagina >= totalPaginas ? 'not-allowed' : 'pointer';
+        }
+    }
+
+    // --- Evento de mudança no Filtro ---
+    if (selectFiltro) {
+        selectFiltro.addEventListener('change', (e) => {
+            const provinciaSelecionada = e.target.value.toLowerCase(); // Captura valor do filtro
+
+            if (provinciaSelecionada === 'todas') {
+                linhasFiltradas = [...todasAsLinhas]; // Reseta para todos os alunos
+            } else {
+                // Filtra a lista com base na coluna da província (3ª coluna)
+                linhasFiltradas = todasAsLinhas.filter(linha => {
+                    const tdProvincia = linha.querySelectorAll('td')[2]; 
+                    const provinciaLimpa = normalizarTexto(tdProvincia.innerText.trim());
+                    return provinciaLimpa === provinciaSelecionada; // Compara província
+                });
+            }
+
+            paginaAtual = 1; // Reseta para a primeira página sempre que filtrar
+            mostrarPagina(paginaAtual); // Renderiza a página
+        });
+    }
+
+    // --- Ações de Clique (Anterior / Próximo) ---
+    if (btnAnterior) {
+        btnAnterior.addEventListener('click', () => {
+            if (paginaAtual > 1) { // Só retrocede se não estiver na página 1
+                paginaAtual--;
+                mostrarPagina(paginaAtual);
+            }
+        });
+    }
+
+    if (btnProximo) {
+        btnProximo.addEventListener('click', () => {
+            const totalPaginas = Math.ceil(linhasFiltradas.length / alunosPorPagina);
+            if (paginaAtual < totalPaginas) { // Só avança se não estiver na última página
+                paginaAtual++;
+                mostrarPagina(paginaAtual);
+            }
+        });
+    }
+
+    // --- Inicialização ---
+    mostrarPagina(1); // Exibe a primeira página ao carregar
+}

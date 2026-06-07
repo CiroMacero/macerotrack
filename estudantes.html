@@ -54,25 +54,447 @@
             </div>
 
             <div class="tabela-wrapper">
-                <table class="tabela-estudantes">
+                <table class="tabela-estudantes" style="width: 100%; text-align: left; border-collapse: collapse;">
                     <thead>
-                        <tr>
-                            <th>Nº</th>
+                        <tr style="border-bottom: 1px solid #333; color: #888;">
+                            <th style="padding: 15px;">Nº</th>
                             <th>Nome do Estudante</th>
                             <th>Província</th>
                             <th>Idade</th>
-                            <th>Módulo Atual</th> </tr>
+                            <th>Faltas</th>
+                            <th>Status</th>
+                        </tr>
                     </thead>
-                    <tbody id="tabela-body">
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">01</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #9b59b6;">A</span>
+                                    Ana Silva
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">15 anos</td>
+                            <td style="color: #fff; font-weight: bold;">01</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">02</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #34495e;">A</span>
+                                    Austin Post
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Benguela</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">15</td>
+                            <td><span class="status-badge status-risco">Em Risco</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">03</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #d35400;">B</span>
+                                    Bia Marques
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Huíla</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">03</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">04</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #e67e22;">B</span>
+                                    Bruno Costa
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Benguela</td>
+                            <td style="color: #aaa;">18 anos</td>
+                            <td style="color: #fff; font-weight: bold;">04</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">05</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #27ae60;">C</span>
+                                    Ciro Macero
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">15 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">06</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #e67e22;">C</span>
+                                    Cleriton Silva
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Huambo</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">01</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">07</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #3498db;">D</span>
+                                    Daniela Rocha
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">08</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #9b59b6;">E</span>
+                                    Eduardo Lima
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Cabinda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">09</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">09</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #f1c40f;">F</span>
+                                    Felipe Faria
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Benguela</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">10</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #2ecc71;">F</span>
+                                    Fernanda Gomes
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">15 anos</td>
+                            <td style="color: #fff; font-weight: bold;">02</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">11</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #2ecc71;">G</span>
+                                    Gabriel da Costa
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">19 anos</td>
+                            <td style="color: #fff; font-weight: bold;">12</td>
+                            <td><span class="status-badge status-risco">Em Risco</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">12</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #2980b9;">H</span>
+                                    Helder Nhimi
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Cabinda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">04</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">13</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #e74c3c;">H</span>
+                                    Hugo Martins
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">18 anos</td>
+                            <td style="color: #fff; font-weight: bold;">11</td>
+                            <td><span class="status-badge status-risco">Em Risco</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">14</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #f1c40f;">I</span>
+                                    Inês Santos
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Benguela</td>
+                            <td style="color: #aaa;">15 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">15</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #1abc9c;">J</span>
+                                    João Pinto
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">05</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">16</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #95a5a6;">J</span>
+                                    Jordan Carter
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">10</td>
+                            <td><span class="status-badge status-risco">Em Risco</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">17</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #34495e;">K</span>
+                                    Kátia Almeida
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Huíla</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">03</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">18</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #e67e22;">L</span>
+                                    Lucas Neves
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Huambo</td>
+                            <td style="color: #aaa;">19 anos</td>
+                            <td style="color: #fff; font-weight: bold;">14</td>
+                            <td><span class="status-badge status-risco">Em Risco</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">19</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #1abc9c;">M</span>
+                                    Marcos Albano
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Namibe</td>
+                            <td style="color: #aaa;">18 anos</td>
+                            <td style="color: #fff; font-weight: bold;">08</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">20</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #9b59b6;">M</span>
+                                    Matheus Aguiar
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">02</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">21</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #8e44ad;">M</span>
+                                    Moises Baptista
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Lunda Sul</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">07</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">22</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #d35400;">N</span>
+                                    Nádia Sousa
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">01</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">23</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #2980b9;">P</span>
+                                    Paulo Castro
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Bié</td>
+                            <td style="color: #aaa;">18 anos</td>
+                            <td style="color: #fff; font-weight: bold;">06</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">24</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #95a5a6;">R</span>
+                                    Rita Fernandes
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Benguela</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">02</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">25</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #e74c3c;">R</span>
+                                    Ryan Vitalino
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Malanje</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">05</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">26</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #c0392b;">S</span>
+                                    Sadrack Gomes
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Lubango</td>
+                            <td style="color: #aaa;">16 anos</td>
+                            <td style="color: #fff; font-weight: bold;">01</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">27</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #1abc9c;">T</span>
+                                    Tiago Mendes
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">28</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #3498db;">V</span>
+                                    Vinicius de Lima
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">18 anos</td>
+                            <td style="color: #fff; font-weight: bold;">06</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">29</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #f39c12;">Y</span>
+                                    Yara Domingos
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Malanje</td>
+                            <td style="color: #aaa;">15 anos</td>
+                            <td style="color: #fff; font-weight: bold;">08</td>
+                            <td><span class="status-badge status-atencao">Atenção</span></td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #222;">
+                            <td style="padding: 15px; color: #aaa;">30</td>
+                            <td>
+                                <div class="aluno-info">
+                                    <span class="avatar" style="background-color: #8e44ad;">Z</span>
+                                    Zacarias Paulo
+                                </div>
+                            </td>
+                            <td style="color: #aaa;">Luanda</td>
+                            <td style="color: #aaa;">17 anos</td>
+                            <td style="color: #fff; font-weight: bold;">00</td>
+                            <td><span class="status-badge status-regular">Regular</span></td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-
-            <div class="tabela-footer">
-                <span id="info-paginacao">A mostrar 1 a 15 de 30 estudantes</span>
-                <div class="paginacao-controles">
-                    <button id="btn-anterior" class="btn-pag">Anterior</button>
-                    <button id="btn-proximo" class="btn-pag">Próximo</button>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+    <span id="texto-paginacao" style="color: #888; font-size: 14px;">A mostrar 1 a 15 de 30 estudantes</span>
+    
+    <div>
+        <button id="btn-anterior" class="btn-pag" style="margin-right: 10px;">Anterior</button>
+        <button id="btn-proximo" class="btn-pag">Próximo</button>
+    </div>
+</div>
                 </div>
             </div>
             
